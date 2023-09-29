@@ -81,7 +81,7 @@ setState(() {
   }
 
   _getHeaderController() {
-    var controller = ExpandableListController();
+    final controller = ExpandableListController();
     controller.addListener(() {
       print("switchingSectionIndex:${controller.switchingSectionIndex}, stickySectionIndex:" +
           "${controller.stickySectionIndex},scrollPercent:${controller.percent}");

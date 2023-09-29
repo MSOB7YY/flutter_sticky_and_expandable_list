@@ -75,11 +75,11 @@ class ExpandableSectionContainer extends MultiChildRenderObjectWidget {
 
   @override
   RenderExpandableSectionContainer createRenderObject(BuildContext context) {
-    var renderSliver =
+    final renderSliver =
         context.findAncestorRenderObjectOfType<RenderExpandableSliverList>()!;
     return RenderExpandableSectionContainer(
       renderSliver: renderSliver,
-      scrollable: Scrollable.of(context)!,
+      scrollable: Scrollable.of(context),
       controller: this.info.controller,
       sticky: this.info.sticky,
       overlapsContent: this.info.overlapsContent,
@@ -93,7 +93,7 @@ class ExpandableSectionContainer extends MultiChildRenderObjectWidget {
   void updateRenderObject(
       BuildContext context, RenderExpandableSectionContainer renderObject) {
     renderObject
-      ..scrollable = Scrollable.of(context)!
+      ..scrollable = Scrollable.of(context)
       ..controller = this.info.controller
       ..sticky = this.info.sticky
       ..overlapsContent = this.info.overlapsContent
@@ -367,10 +367,10 @@ class RenderExpandableSectionContainer extends RenderBox
     if (_sticky && isStickyChild && sliverListOffset > minScrollOffset) {
       currHeaderOffset = sliverListOffset - minScrollOffset;
     }
-   // print(
-   //     "index:$listIndex currHeaderOffset:${currHeaderOffset.toStringAsFixed(2)}" +
-   //         " sliverListOffset:${sliverListOffset.toStringAsFixed(2)}" +
-   //         " [$minScrollOffset,$maxScrollOffset] size:${content.size.height}");
+    // print(
+    //     "index:$listIndex currHeaderOffset:${currHeaderOffset.toStringAsFixed(2)}" +
+    //         " sliverListOffset:${sliverListOffset.toStringAsFixed(2)}" +
+    //         " [$minScrollOffset,$maxScrollOffset] size:${content.size.height}");
     positionChild(header, Offset(0, min(currHeaderOffset, headerMaxOffset)));
 
     //callback header hide percent
@@ -404,9 +404,9 @@ class RenderExpandableSectionContainer extends RenderBox
   void _refreshContainerLayoutOffsets(String reason) {
     // print("$TAG _refreshContainerLayoutOffsets reason:$reason");
     _renderSliver.visitChildren((renderObject) {
-      var containerParentData =
+      final containerParentData =
           renderObject.parentData as SliverMultiBoxAdaptorParentData;
-     // print("visitChildren $containerParentData");
+      // print("visitChildren $containerParentData");
 
       while (
           _controller.containerOffsets.length <= containerParentData.index!) {
@@ -455,7 +455,8 @@ class RenderExpandableSectionContainer extends RenderBox
       double currOffset = _controller.containerOffsets[i]?.toDouble() ?? 0;
       double nextOffset = _controller.containerOffsets[i + 1]?.toDouble() ?? 0;
       if (currOffset > nextOffset) {
-        _refreshContainerLayoutOffsets("offset invalid: $currOffset->$nextOffset");
+        _refreshContainerLayoutOffsets(
+            "offset invalid: $currOffset->$nextOffset");
         break;
       }
     }

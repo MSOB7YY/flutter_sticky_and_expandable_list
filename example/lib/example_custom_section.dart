@@ -9,7 +9,7 @@ class ExampleCustomSection extends StatefulWidget {
 }
 
 class _ExampleCustomSectionState extends State<ExampleCustomSection> {
-  var sectionList = MockData.getExampleSections();
+  final sectionList = MockData.getExampleSections();
 
   @override
   Widget build(BuildContext context) {

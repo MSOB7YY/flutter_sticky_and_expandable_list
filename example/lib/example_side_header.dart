@@ -9,9 +9,9 @@ class ExampleSideHeader extends StatefulWidget {
 }
 
 class _ExampleSideHeaderState extends State<ExampleSideHeader> {
-  var sectionList = MockData.getExampleSections();
+  final sectionList = MockData.getExampleSections();
 
-  var _controller = ExpandableListController();
+  final _controller = ExpandableListController();
 
   @override
   void initState() {

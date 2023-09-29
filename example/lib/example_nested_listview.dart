@@ -19,7 +19,7 @@ class ExampleNestedListView extends StatefulWidget {
 }
 
 class _ExampleNestedListViewState extends State<ExampleNestedListView> {
-  var sectionList = MockData.getExampleSections(10, 20);
+  final sectionList = MockData.getExampleSections(10, 20);
 
   late ScrollController _scrollListener;
 
@@ -114,7 +114,7 @@ class _ExampleNestedListViewState extends State<ExampleNestedListView> {
   }
 
   bool _onNotification(ScrollNotification notification) {
-    var metrics = notification.metrics;
+    final metrics = notification.metrics;
     if (notification is ScrollEndNotification) {
       drag = null;
     }

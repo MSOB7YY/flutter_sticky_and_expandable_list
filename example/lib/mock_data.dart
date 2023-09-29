@@ -8,9 +8,9 @@ class MockData {
   ///each section has 5 items.
   static List<ExampleSection> getExampleSections(
       [int sectionSize = 10, int itemSize = 5]) {
-    var sections = List<ExampleSection>.empty(growable: true);
+    final sections = List<ExampleSection>.empty(growable: true);
     for (int i = 0; i < sectionSize; i++) {
-      var section = ExampleSection()
+      final section = ExampleSection()
         ..header = "Header#$i"
         ..items = List.generate(itemSize, (index) => "ListTile #$index")
         ..expanded = true;

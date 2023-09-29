@@ -9,7 +9,7 @@ class ExampleListView extends StatefulWidget {
 }
 
 class _ExampleListViewState extends State<ExampleListView> {
-  var sectionList = MockData.getExampleSections();
+  final sectionList = MockData.getExampleSections();
 
   @override
   void initState() {

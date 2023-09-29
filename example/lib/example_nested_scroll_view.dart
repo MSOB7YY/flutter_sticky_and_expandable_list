@@ -11,7 +11,7 @@ class ExampleNestedScrollView extends StatefulWidget {
 
 class _ExampleNestedScrollViewState extends State<ExampleNestedScrollView>
     with TickerProviderStateMixin {
-  var sectionList = MockData.getExampleSections();
+  final sectionList = MockData.getExampleSections();
   late TabController tabController, subTabController;
   final GlobalKey<NestedScrollViewState> nestedScrollKey = GlobalKey();
   double _expandedHeight = 200;
@@ -23,10 +23,10 @@ class _ExampleNestedScrollViewState extends State<ExampleNestedScrollView>
     super.initState();
     this.tabController = TabController(length: 2, vsync: this);
     this.subTabController = TabController(length: 2, vsync: this);
-    var headerContentHeight = _expandedHeight - kToolbarHeight;
+    final headerContentHeight = _expandedHeight - kToolbarHeight;
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       outerController.addListener(() {
-        var pinned = outerController.offset >= headerContentHeight;
+        final pinned = outerController.offset >= headerContentHeight;
         if (_isPinnedTitleShown != pinned) {
           setState(() {
             _isPinnedTitleShown = pinned;

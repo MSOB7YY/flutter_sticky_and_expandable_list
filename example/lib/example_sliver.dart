@@ -9,7 +9,7 @@ class ExampleSliver extends StatefulWidget {
 }
 
 class _ExampleSliverState extends State<ExampleSliver> {
-  var sectionList = MockData.getExampleSections();
+  final sectionList = MockData.getExampleSections();
 
   @override
   Widget build(BuildContext context) {

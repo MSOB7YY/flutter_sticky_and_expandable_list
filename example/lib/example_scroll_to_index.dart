@@ -10,7 +10,7 @@ class ExampleScrollToIndex extends StatefulWidget {
 }
 
 class _ExampleScrollToIndexState extends State<ExampleScrollToIndex> {
-  var sectionList = MockData.getExampleSections(10, 5);
+  final sectionList = MockData.getExampleSections(10, 5);
 
   late AutoScrollController scrollController;
   int counter = 0;
@@ -57,7 +57,10 @@ class _ExampleScrollToIndexState extends State<ExampleScrollToIndex> {
           padding: EdgeInsets.all(10),
           alignment: Alignment.center,
           color: Colors.blueGrey,
-          child: Text("Click Me: ${counter.toString()}", style: TextStyle(color: Colors.white),),
+          child: Text(
+            "Click Me: ${counter.toString()}",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
     );

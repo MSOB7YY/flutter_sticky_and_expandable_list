@@ -10,8 +10,8 @@ class ExampleAnimatableHeader extends StatefulWidget {
 }
 
 class _ExampleAnimatableHeaderState extends State<ExampleAnimatableHeader> {
-  var sectionList = MockData.getExampleSections();
-  var _controller = ExpandableListController();
+  final sectionList = MockData.getExampleSections();
+  final _controller = ExpandableListController();
 
   @override
   void initState() {
@@ -62,7 +62,7 @@ class _ExampleAnimatableHeaderState extends State<ExampleAnimatableHeader> {
   }
 
   Widget _buildHeader(BuildContext context, int sectionIndex, int index) {
-    var section = sectionList[sectionIndex];
+    final section = sectionList[sectionIndex];
     return ExpandableAutoLayoutWidget(
       trigger: ExpandableDefaultAutoLayoutTrigger(_controller),
       builder: (context) {

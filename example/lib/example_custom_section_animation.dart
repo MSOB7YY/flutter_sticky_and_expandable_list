@@ -12,7 +12,7 @@ class ExampleCustomSectionAnimation extends StatefulWidget {
 
 class _ExampleCustomSectionAnimationState
     extends State<ExampleCustomSectionAnimation> {
-  var sectionList = MockData.getExampleSections(3, 3);
+  final sectionList = MockData.getExampleSections(3, 3);
 
   @override
   Widget build(BuildContext context) {

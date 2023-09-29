@@ -20,7 +20,7 @@ void main() {
   runApp(MyApp());
   if (Platform.isAndroid) {
     //set statusBar color
-    var overlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.blue);
+    final overlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.blue);
     SystemChrome.setSystemUIOverlayStyle(overlayStyle);
   }
 }

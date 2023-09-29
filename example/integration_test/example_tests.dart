@@ -16,10 +16,10 @@
 //       await tester.tap(find.byKey(ValueKey(RoutePath.listView)));
 //
 //       await tester.pumpAndSettle();
-//       var listView = find.byType(ExpandableListView);
-//       var header0 = find.text("Header#0");
-//       var header1 = find.text("Header#1");
-//       var header2 = find.text("Header#2");
+//       final listView = find.byType(ExpandableListView);
+//       final header0 = find.text("Header#0");
+//       final header1 = find.text("Header#1");
+//       final header2 = find.text("Header#2");
 //
 //       //initial position.
 //       expect(header1, findsOneWidget);
@@ -47,10 +47,10 @@
 //
 // // Future<void> scrollTo(WidgetTester tester, Finder finder, String text,
 // //     {Type widgetType = CircleAvatar, Offset offset = Offset.zero}) async {
-// //   var widget = find.widgetWithText(widgetType, text);
-// //   var finderOffset = tester.getTopLeft(finder);
-// //   var itemOffset = tester.getTopLeft(widget);
-// //   var finalOffset = Offset(finderOffset.dx - itemOffset.dx + offset.dx,
+// //   final widget = find.widgetWithText(widgetType, text);
+// //   final finderOffset = tester.getTopLeft(finder);
+// //   final itemOffset = tester.getTopLeft(widget);
+// //   final finalOffset = Offset(finderOffset.dx - itemOffset.dx + offset.dx,
 // //       finderOffset.dy - itemOffset.dy + offset.dy);
 // //   await tester.timedDrag(finder, finalOffset, Duration(milliseconds: 300));
 // // }

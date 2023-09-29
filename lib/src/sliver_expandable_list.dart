@@ -38,7 +38,7 @@ class SliverExpandableList extends SliverList {
   @override
   void updateRenderObject(
       BuildContext context, RenderExpandableSliverList renderObject) {
-    var oldRenderList = renderObject.expandStateList;
+    final oldRenderList = renderObject.expandStateList;
     renderObject.expandStateList = _buildExpandStateList();
     if (!renderObject.sizeChanged &&
         listEquals(oldRenderList, renderObject.expandStateList)) {
@@ -48,7 +48,7 @@ class SliverExpandableList extends SliverList {
   }
 
   List<bool> _buildExpandStateList() {
-    List<ExpandableListSection> sectionList = builder.sectionList;
+    final List<ExpandableListSection> sectionList = builder.sectionList;
     return List.generate(
         sectionList.length, (index) => sectionList[index].isSectionExpanded());
   }
@@ -144,19 +144,19 @@ class SliverExpandableChildDelegate<T, S extends ExpandableListSection<T>> {
     if (separatorBuilder == null) {
       delegate = SliverChildBuilderDelegate(
         (BuildContext context, int index) {
-          int sectionIndex = index;
-          S section = sectionList[sectionIndex];
-          int sectionRealIndex = sectionRealIndexes[sectionIndex];
+          final int sectionIndex = index;
+          final S section = sectionList[sectionIndex];
+          final int sectionRealIndex = sectionRealIndexes[sectionIndex];
 
           int sectionChildCount = section.getItems()?.length ?? 0;
           if (!section.isSectionExpanded()) {
             sectionChildCount = 0;
           }
-          var childBuilderDelegate = SliverChildBuilderDelegate(
+          final childBuilderDelegate = SliverChildBuilderDelegate(
               (context, i) => itemBuilder(
                   context, sectionIndex, i, sectionRealIndex + i + 1),
               childCount: sectionChildCount);
-          var containerInfo = ExpandableSectionContainerInfo(
+          final containerInfo = ExpandableSectionContainerInfo(
             separated: false,
             listIndex: index,
             sectionIndex: sectionIndex,
@@ -201,7 +201,8 @@ class SliverExpandableChildDelegate<T, S extends ExpandableListSection<T>> {
             if (!section.isSectionExpanded()) {
               sectionChildCount = 0;
             }
-            var childBuilderDelegate = SliverChildBuilderDelegate((context, i) {
+            final childBuilderDelegate =
+                SliverChildBuilderDelegate((context, i) {
               int itemRealIndex = sectionRealIndex + (i ~/ 2) + 1;
               if (i.isEven) {
                 return itemBuilder(
@@ -210,7 +211,7 @@ class SliverExpandableChildDelegate<T, S extends ExpandableListSection<T>> {
                 return separatorBuilder!(context, false, itemRealIndex);
               }
             }, childCount: sectionChildCount);
-            var containerInfo = ExpandableSectionContainerInfo(
+            final containerInfo = ExpandableSectionContainerInfo(
               separated: true,
               listIndex: index,
               sectionIndex: sectionIndex,
@@ -257,9 +258,9 @@ class SliverExpandableChildDelegate<T, S extends ExpandableListSection<T>> {
   ///By default, build a Column widget for layout all children's size.
   static Widget buildDefaultContent(
       BuildContext context, ExpandableSectionContainerInfo containerInfo) {
-    var childDelegate = containerInfo.childDelegate;
+    final childDelegate = containerInfo.childDelegate;
     if (childDelegate != null) {
-      var children =
+      final children =
           List<Widget>.generate(childDelegate.childCount ?? 0, (index) {
         return childDelegate.builder(context, index) ?? Container();
       });
